@@ -11,6 +11,8 @@ interface PreferencesStorage {
 
     val lastExecutedMigrationVersionKey: Preferences.Key<Int>
 
+    val versionKey: Preferences.Key<Int>
+
     suspend fun <T> getValue(key: Preferences.Key<T>): T?
 
     suspend fun <T> requireValue(key: Preferences.Key<T>): T

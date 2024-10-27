@@ -99,8 +99,11 @@ internal class MealieServiceKtor @Inject constructor(
     }
 
     override suspend fun createRecipeFromURL(request: ParseRecipeURLRequest): String {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/recipes/create/url" else "/recipes/create-url"
+
         return httpClient.post {
-            endpoint("/api/recipes/create-url")
+            endpoint(path)
             contentType(ContentType.Application.Json)
             setBody(request)
         }.body()
@@ -139,8 +142,11 @@ internal class MealieServiceKtor @Inject constructor(
     }
 
     override suspend fun getShoppingLists(page: Int, perPage: Int): GetShoppingListsResponse {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/lists" else "/groups/shopping/lists"
+
         return httpClient.get {
-            endpoint("/api/groups/shopping/lists") {
+            endpoint(path) {
                 parameters.append("page", page.toString())
                 parameters.append("perPage", perPage.toString())
             }
@@ -148,28 +154,40 @@ internal class MealieServiceKtor @Inject constructor(
     }
 
     override suspend fun getShoppingList(id: String): GetShoppingListResponse {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/lists/$id" else "/api/groups/shopping/lists/$id"
+
         return httpClient.get {
-            endpoint("/api/groups/shopping/lists/$id")
+            endpoint(path)
         }.body()
     }
 
     override suspend fun getShoppingListItem(id: String): JsonElement {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/items/$id" else "/api/groups/shopping/items/$id"
+
         return httpClient.get {
-            endpoint("/api/groups/shopping/items/$id")
+            endpoint(path)
         }.body()
     }
 
     override suspend fun updateShoppingListItem(id: String, request: JsonElement) {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/items/$id" else "/api/groups/shopping/items/$id"
+
         httpClient.put {
-            endpoint("/api/groups/shopping/items/$id")
+            endpoint(path)
             contentType(ContentType.Application.Json)
             setBody(request)
         }
     }
 
     override suspend fun deleteShoppingListItem(id: String) {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/items/$id" else "/api/groups/shopping/items/$id"
+
         httpClient.delete {
-            endpoint("/api/groups/shopping/items/$id")
+            endpoint(path)
         }
     }
 
@@ -190,38 +208,53 @@ internal class MealieServiceKtor @Inject constructor(
     }
 
     override suspend fun createShoppingListItem(request: CreateShoppingListItemRequest) {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/items" else "/api/groups/shopping/items"
+
         httpClient.post {
-            endpoint("/api/groups/shopping/items")
+            endpoint(path)
             contentType(ContentType.Application.Json)
             setBody(request)
         }
     }
 
     override suspend fun createShoppingList(request: CreateShoppingListRequest) {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/lists" else "/api/groups/shopping/lists"
+
         httpClient.post {
-            endpoint("/api/groups/shopping/lists")
+            endpoint(path)
             contentType(ContentType.Application.Json)
             setBody(request)
         }
     }
 
     override suspend fun deleteShoppingList(id: String) {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/lists/$id" else "/api/groups/shopping/lists/$id"
+
         httpClient.delete {
-            endpoint("/api/groups/shopping/lists/$id")
+            endpoint(path)
         }
     }
 
     override suspend fun updateShoppingList(id: String, request: JsonElement) {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/lists/$id" else "/api/groups/shopping/lists/$id"
+
         httpClient.put {
-            endpoint("/api/groups/shopping/lists/$id")
+            endpoint(path)
             contentType(ContentType.Application.Json)
             setBody(request)
         }
     }
 
     override suspend fun getShoppingListJson(id: String): JsonElement {
+        val path = if (serverUrlProvider.getVersion() >= 2)
+            "/api/households/shopping/lists/$id" else "/api/groups/shopping/lists/$id"
+
         return httpClient.get {
-            endpoint("/api/groups/shopping/lists/$id")
+            endpoint(path)
         }.body()
     }
 
