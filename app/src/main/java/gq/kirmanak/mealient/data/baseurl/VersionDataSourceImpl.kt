@@ -9,6 +9,8 @@ class VersionDataSourceImpl @Inject constructor(
 ) : VersionDataSource {
 
     override suspend fun requestVersion(baseURL: String): VersionResponse {
-        return dataSource.getVersionInfo(baseURL)
+        val version = dataSource.getVersionInfo(baseURL)
+        println("______________-Version: $version")
+        return version
     }
 }

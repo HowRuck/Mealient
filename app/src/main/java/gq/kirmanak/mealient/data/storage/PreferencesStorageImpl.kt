@@ -29,6 +29,8 @@ class PreferencesStorageImpl @Inject constructor(
     override val lastExecutedMigrationVersionKey: Preferences.Key<Int> =
         intPreferencesKey("lastExecutedMigrationVersion")
 
+    override val versionKey = intPreferencesKey("version")
+
     override suspend fun <T> getValue(key: Preferences.Key<T>): T? {
         val value = dataStore.data.first()[key]
         logger.v { "getValue() returned: $value for $key" }
