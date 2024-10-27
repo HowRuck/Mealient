@@ -20,11 +20,11 @@ appcompat = "1.7.0"
 # https://developer.android.com/jetpack/androidx/releases/core
 splashScreen = "1.0.1"
 # https://developer.android.com/jetpack/androidx/releases/lifecycle
-lifecycle = "2.8.4"
+lifecycle = "2.8.6"
 # https://developer.android.com/jetpack/androidx/releases/arch-core
 coreTesting = "2.2.0"
 # https://github.com/Kotlin/kotlinx.serialization/releases
-kotlinxSerialization = "1.7.2"
+kotlinxSerialization = "1.7.3"
 # https://github.com/square/okhttp/tags
 okhttp = "4.12.0"
 # https://developer.android.com/jetpack/androidx/releases/paging
@@ -52,7 +52,7 @@ leakcanary = "2.14"
 # https://github.com/ChuckerTeam/chucker/releases
 chucker = "4.0.0"
 # https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
-desugar = "2.1.1"
+desugar = "2.1.2"
 # https://github.com/google/ksp/releases
 kspPlugin = "2.0.10-1.0.24"
 # https://developer.android.com/jetpack/androidx/releases/sharetarget
@@ -66,11 +66,11 @@ androidXTestRunner = "1.6.2"
 androidXTestOrchestrator = "1.5.0"
 junitKtx = "1.2.1"
 # https://mvnrepository.com/artifact/androidx.compose/compose-bom
-composeBom = "2024.06.00"
+composeBom = "2024.09.03"
 # https://google.github.io/accompanist/
-accompanistVersion = "0.34.0"
+accompanistVersion = "0.36.0"
 # https://developer.android.com/jetpack/androidx/releases/compose-material
-materialCompose = "1.6.8"
+materialCompose = "1.7.3"
 # https://github.com/raamcosta/compose-destinations/releases
 composeDestinations = "1.10.2"
 # https://developer.android.com/jetpack/androidx/releases/hilt
